@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  GCDDownProject
+//
+//  Created by GaoCheng.Zou on 16/1/21.
+//  Copyright © 2016年 like. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import <UIKit/UIKit.h>
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+static NSString * const ZGCDownRequestSendBackgroundDownloadNotification  = @"com.downrequestobject.sendbackgrounddownload";
+
+static NSString * const ZGCDownRequestBecomeActiveDownloadNotification  = @"com.downrequestobject.becomeactivedownload";
+
+static NSString * const ZGCDownRequestSaveResumeDataWithCrashNotification  = @"com.downrequestobject.saveresumedatawithcrash";
+
+
+
+#endif /* PrefixHeader_pch */

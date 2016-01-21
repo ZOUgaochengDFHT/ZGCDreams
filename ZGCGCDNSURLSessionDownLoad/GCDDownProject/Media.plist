@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>url</key>
+		<string>http://fdfs.xmcdn.com/group15/M0A/C5/89/wKgDZVZnmJbwWHWNADw2DpyRmys673.mp3</string>
+		<key>title</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://fdfs.xmcdn.com/group13/M06/E6/37/wKgDXVaYkUayidq4ALAUGNTcOAc927.mp3</string>
+		<key>title</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://fdfs.xmcdn.com/group13/M0B/E6/25/wKgDXlaYkU2yeXDlAFgKI9IgR_E895.mp3</string>
+		<key>title</key>
+		<string>3</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://fdfs.xmcdn.com/group9/M06/E0/70/wKgDZlaPGWbSZ8DZAH9Y_fVmkO4446.mp3</string>
+		<key>title</key>
+		<string>4</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://fdfs.xmcdn.com/group15/M00/DF/02/wKgDZVaPGW6wDCPsAD-slQuadBU678.mp3</string>
+		<key>title</key>
+		<string>5</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://fdfs.xmcdn.com/group11/M09/CF/4E/wKgDa1aJ8OaB1rGwAGwKIwEDJ2U739.mp3</string>
+		<key>title</key>
+		<string>6</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://audio.xmcdn.com/group11/M09/CF/4E/wKgDa1aJ8OWwbl3eANptmZQDyLE649.m4a</string>
+		<key>title</key>
+		<string>7</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://audio.xmcdn.com/group11/M09/E8/5C/wKgDbVaJ8NmQndbwAFNfwANMPeY442.m4a</string>
+		<key>title</key>
+		<string>8</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://audio.xmcdn.com/group11/M09/E8/5C/wKgDbVaJ8NmQndbwAFNfwANMPeY442.m4a</string>
+		<key>title</key>
+		<string>9</string>
+	</dict>
+	<dict>
+		<key>url</key>
+		<string>http://audio.xmcdn.com/group15/M0A/C5/89/wKgDZVZnmJfBm1CaAHm9dUXIhP8942.m4a</string>
+		<key>title</key>
+		<string>10</string>
+	</dict>
+</array>
+</plist>
