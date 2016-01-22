@@ -24,7 +24,7 @@ static LDownRequestObject *_downRequestObject = nil;
 /**
  *  设置最大下载任务量
  */
-#define LMAXDOWNFILENUMBER 3
+#define LMAXDOWNFILENUMBER 1
 
 @interface LDownRequestObject ()
 
