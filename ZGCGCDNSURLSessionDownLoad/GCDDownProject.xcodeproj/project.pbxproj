@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		299D7D0F867AD339657F6315 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573B475CC9932BC2D6F0F6EF /* libPods.a */; };
-		BC40625A1C51EB0C00C578EB /* ZGCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4062591C51EB0C00C578EB /* ZGCNavigationController.m */; };
-		BC40625D1C51EB8000C578EB /* ZGCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC40625C1C51EB8000C578EB /* ZGCBaseViewController.m */; };
+		BC4062631C51EF3F00C578EB /* ZGCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4062601C51EF3F00C578EB /* ZGCBaseViewController.m */; };
+		BC4062641C51EF3F00C578EB /* ZGCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4062621C51EF3F00C578EB /* ZGCNavigationController.m */; };
 		BC82304A1C50CF3200905196 /* Media.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC8230491C50CF3200905196 /* Media.plist */; };
 		ECBBB2EF1B29641900560678 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBB2EE1B29641900560678 /* main.m */; };
 		ECBBB2F21B29641900560678 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBB2F11B29641900560678 /* AppDelegate.m */; };
@@ -44,10 +44,10 @@
 /* Begin PBXFileReference section */
 		4191E9639206A9CF8D77D1C9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		573B475CC9932BC2D6F0F6EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC4062581C51EB0C00C578EB /* ZGCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCNavigationController.h; sourceTree = "<group>"; };
-		BC4062591C51EB0C00C578EB /* ZGCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCNavigationController.m; sourceTree = "<group>"; };
-		BC40625B1C51EB8000C578EB /* ZGCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCBaseViewController.h; sourceTree = "<group>"; };
-		BC40625C1C51EB8000C578EB /* ZGCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCBaseViewController.m; sourceTree = "<group>"; };
+		BC40625F1C51EF3F00C578EB /* ZGCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCBaseViewController.h; sourceTree = "<group>"; };
+		BC4062601C51EF3F00C578EB /* ZGCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCBaseViewController.m; sourceTree = "<group>"; };
+		BC4062611C51EF3F00C578EB /* ZGCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCNavigationController.h; sourceTree = "<group>"; };
+		BC4062621C51EF3F00C578EB /* ZGCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCNavigationController.m; sourceTree = "<group>"; };
 		BC8230481C50CA9800905196 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC8230491C50CF3200905196 /* Media.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Media.plist; sourceTree = "<group>"; };
 		C56F659C0249D3919200A4D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,13 +123,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BC4062511C51E9AD00C578EB /* BaseClasses */ = {
+		BC40625E1C51EF3F00C578EB /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
-				BC4062581C51EB0C00C578EB /* ZGCNavigationController.h */,
-				BC4062591C51EB0C00C578EB /* ZGCNavigationController.m */,
-				BC40625B1C51EB8000C578EB /* ZGCBaseViewController.h */,
-				BC40625C1C51EB8000C578EB /* ZGCBaseViewController.m */,
+				BC40625F1C51EF3F00C578EB /* ZGCBaseViewController.h */,
+				BC4062601C51EF3F00C578EB /* ZGCBaseViewController.m */,
+				BC4062611C51EF3F00C578EB /* ZGCNavigationController.h */,
+				BC4062621C51EF3F00C578EB /* ZGCNavigationController.m */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 		ECBBB2E01B29641900560678 = {
 			isa = PBXGroup;
 			children = (
-				BC4062511C51E9AD00C578EB /* BaseClasses */,
+				BC40625E1C51EF3F00C578EB /* BaseClasses */,
 				ECBBB3121B29655D00560678 /* LDownFile */,
 				ECBBB2EB1B29641900560678 /* GCDDownProject */,
 				ECBBB3051B29641900560678 /* GCDDownProjectTests */,
@@ -403,7 +403,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC40625D1C51EB8000C578EB /* ZGCBaseViewController.m in Sources */,
 				ECBBB38F1B29677400560678 /* LShowMsgView.m in Sources */,
 				ECBBB32F1B29655D00560678 /* DownLoaded.m in Sources */,
 				ECBBB2F51B29641900560678 /* ViewController.m in Sources */,
@@ -414,8 +413,9 @@
 				ECBBB32E1B29655D00560678 /* CoreDataManager.m in Sources */,
 				ECBBB32D1B29655D00560678 /* ComplianceDownFile.xcdatamodeld in Sources */,
 				ECBBB3321B29655D00560678 /* PauseDownLoad.m in Sources */,
+				BC4062631C51EF3F00C578EB /* ZGCBaseViewController.m in Sources */,
 				ECBBB3311B29655D00560678 /* DownLoading.m in Sources */,
-				BC40625A1C51EB0C00C578EB /* ZGCNavigationController.m in Sources */,
+				BC4062641C51EF3F00C578EB /* ZGCNavigationController.m in Sources */,
 				ECBBB2EF1B29641900560678 /* main.m in Sources */,
 				ECBBB3331B29655D00560678 /* ReadyDownLoad.m in Sources */,
 				ECBBB3441B29658A00560678 /* AppPlaySound.m in Sources */,
