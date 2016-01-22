@@ -32,12 +32,10 @@
      *@设置controller背景颜色和创建自定义返回按钮
      */
     if (self.navigationController.viewControllers.count>1) {
-        [self.view setBackgroundColor:[UIColor whiteColor]];
         [self initBackBtn];
-    }else
-    {
-        self.view.backgroundColor = [UIColor blackColor];
     }
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
@@ -48,12 +46,12 @@
 
 - (void)initBackBtn
 {
-    backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     /**
      *@设置frame只能控制按钮的大小
      */
     backBtn.frame= CGRectMake(0, 0, 20, 20);
-    [backBtn setImage:PNGImage(@"ic-fanhui") forState:UIControlStateNormal];
+    [backBtn setImage:PNGImage(@"icon_back") forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *btn_right = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
@@ -65,6 +63,10 @@
      */
     negativeSpacer.width = -10;
     self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, btn_right, nil];
+}
+
+- (void)backButtonClicked {
+    
 }
 
 - (void)didReceiveMemoryWarning {
