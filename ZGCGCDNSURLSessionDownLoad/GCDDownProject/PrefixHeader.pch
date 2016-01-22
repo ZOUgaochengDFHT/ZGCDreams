@@ -19,5 +19,137 @@ static NSString * const ZGCDownRequestBecomeActiveDownloadNotification  = @"com.
 static NSString * const ZGCDownRequestSaveResumeDataWithCrashNotification  = @"com.downrequestobject.saveresumedatawithcrash";
 
 
+//根据图片名返回对应的图片
+#define PNGImage(N) [UIImage imageNamed:(N)]
+
+//设置字体
+#define sysFont(f) [UIFont fontWithName:@"Helvetica" size:f]
+#define blodSysFont(f) [UIFont fontWithName:@"Helvetica" size:f]
+
+/**
+ *  用宏定义检测block是否可用！
+ */
+#define BLOCK_EXEC(block, ...) if (block) { block(__VA_ARGS__); };
+
+/**
+ *  是否使用ARC
+ */
+#if __has_feature(objc_arc)
+//compiling with ARC
+#else
+// compiling without ARC
+#endif
+
+
+//————————————————————————   设置是否调试模式   ——————————————————————————
+//设置是否调试模式
+#define MYDEBUG 1
+#if MYDEBUG
+#define MYLog(xx, ...)  NSLog(@"%s(%d): " xx, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define MYLog(xx, ...)  ((void)0)
+#endif // #ifdef DEBUG
+
+//#if DEBUG
+//#define DMLog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+//#else
+//#define DMLog(...) do { } while (0)
+
+// 设置首页item的宽高
+#define itemWidth (KScreenWidth-20)/3
+#define itemHeight ((KScreenWidth-20)/3*9)/10
+
+/**
+ *获取设备的高度和宽度
+ */
+#define KScreenWidth [UIScreen mainScreen].bounds.size.width
+#define KScreenHeight [UIScreen mainScreen].bounds.size.height
+
+static const int topBegin = 0;
+static const int tabBarHeight = 49;
+static const int navBarHeight = 44;
+static const int stateBarHeight = 20;
+
+//筛选界面的阴影可见界面的宽度
+static const CGFloat shadowVisibleWidth = 50;
+
+#warning 请修改为您在百度开发者平台申请的API_KEY和SECRET_KEY
+#define API_KEY @"GQK1F1vWWcA9cBfP02ecxL3A" // 请修改为您在百度开发者平台申请的API_KEY
+#define SECRET_KEY @"qBPSTWGMMrSi2nKuDoov2mEcmG1OaehE" // 请修改您在百度开发者平台申请的SECRET_KEY
+
+//通过三色值获取颜色对象
+#define rgb(r,g,b,a)    [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define RedBackgroudColor rgb(245, 50, 59, 1)
+#define PurpleBackgroudColor rgb(141, 75, 231, 1)
+#define GreenBackgroudColor rgb(89, 193, 74, 1)
+#define GrayBackgroudColor rgb(246, 246, 246, 1)
+#define LayerBackgroundColor rgb(193, 193, 193, 1)
+
+
+//———————————————————————  NotificationName —————————————————————————————
+
+#define ADDORMINUSGOODSSUCCESS @"ADDORMINUSGOODSSUCCESS"  //增减商品
+#define CHOICEORNOT @"CHOICEORNOT" //选择或不选择该商品
+#define DEFAULTADDRESS @"DEFAULTADDRESS"  //设置默认地址
+#define DELETEADDRESS @"DELETEADDRESS"  //删除地址
+#define EDITINGADDRESS @"EDITINGADDRESS"  //编辑地址
+#define CONTROLLERBACK @"CONTROLLERBACK"  //控制器返回
+#define ISFIRSTORSECOND @"ISFIRSTORSECOND"  //团购
+#define ISFIRSTORSECONDSERVICE @"ISFIRSTORSECONDSERVICE" //服务
+#define UIDATEPICKERWILLSHOW @"UIDATEPICKERWILLSHOW" //时间选择器显示通知
+#define ONELINESHOPPINGGOODSFILTER @"ONELINESHOPPINGGOODSFILTER"  //商品筛选条件
+#define ALLTYPELIST @"ALLTYPELIST"  //全部分类
+#define GOODORDERDETAIVCVIEWCHANGE @"GOODORDERDETAIVCVIEWCHANGE"  //通知商品订单详情做出视图改变
+#define LOGINVCISPRESENT @"LOGINVCISPRESENT"  //通知是否显示登录界面
+
+
+#define UPLOADALLIMAGESUCCESS @"UPLOADALLIMAGESUCCESS" //上传所有图片完成
+
+//———————————————————————  NSUserDefaults —————————————————————————————
+#define UserDefaults [NSUserDefaults standardUserDefaults]
+#define isExistSessionKey [UserDefaults objectForKey:@"sessionKey"] //是否登录
+#define isExistUserId [UserDefaults objectForKey:@"userId"]
+
+//判断系统的版本
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice]systemVersion]compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)  ([[[UIDevice currentDevice]systemVersion]compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+//判断设备型号
+#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(320, 480), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone4s ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone5iPhone5s ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone6iPhone6s ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone6piPhone6sp  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
 
 #endif /* PrefixHeader_pch */
+
+/*//手机序列号
+ NSString* identifierNumber = [[UIDevice currentDevice] uniqueIdentifier];
+ NSLog(@"手机序列号: %@",identifierNumber);
+ //手机别名： 用户定义的名称
+ NSString* userPhoneName = [[UIDevice currentDevice] name];
+ NSLog(@"手机别名: %@", userPhoneName);
+ //设备名称
+ NSString* deviceName = [[UIDevice currentDevice] systemName];
+ NSLog(@"设备名称: %@",deviceName );
+ //手机系统版本
+ NSString* phoneVersion = [[UIDevice currentDevice] systemVersion];
+ NSLog(@"手机系统版本: %@", phoneVersion);
+ //手机型号
+ NSString* phoneModel = [[UIDevice currentDevice] model];
+ NSLog(@"手机型号: %@",phoneModel );
+ //地方型号  （国际化区域名称）
+ NSString* localPhoneModel = [[UIDevice currentDevice] localizedModel];
+ NSLog(@"国际化区域名称: %@",localPhoneModel );
+ 
+ NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+ // 当前应用名称
+ NSString *appCurName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+ NSLog(@"当前应用名称：%@",appCurName);
+ // 当前应用软件版本  比如：1.0.1
+ NSString *appCurVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+ NSLog(@"当前应用软件版本:%@",appCurVersion);
+ // 当前应用版本号码   int类型
+ NSString *appCurVersionNum = [infoDictionary objectForKey:@"CFBundleVersion"];
+ NSLog(@"当前应用版本号码：%@",appCurVersionNum);  */
+

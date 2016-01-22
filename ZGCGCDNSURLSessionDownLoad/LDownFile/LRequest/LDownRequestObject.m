@@ -24,7 +24,7 @@ static LDownRequestObject *_downRequestObject = nil;
 /**
  *  设置最大下载任务量
  */
-#define LMAXDOWNFILENUMBER 1
+#define ZGCMAXDOWNFILENUMBER 2
 
 @interface LDownRequestObject ()
 
@@ -117,8 +117,14 @@ static LDownRequestObject *_downRequestObject = nil;
                            withFileName:(NSString *)fileName
                              withFileId:(NSInteger)fileId
 {
+    /**
+     *  数据的存储在子线程中进行，避免阻塞主线程
+     */
     dispatch_async(serialQueue, ^{
         
+        /**
+         *  使用@synchronized保证在同一时刻有且仅有一个线程读取当前的代码块，即其他试图执行该段代码的线程都会被阻塞，直到加锁线程退出执行该段被保护的代码段，也就是说@synchronized()代码块中的最后一条语句已经被执行完毕的时候。指令@synchronized()需要一个参数。该参数可以使任何的Objective-C对象，包括self。这个对象就是互斥信号量。他能够让一个线程对一段代码进行保护，避免别的线程执行该段代码。针对程序中的不同的关键代码段，我们应该分别使用不同的信号量。只有在应用程序编程执行多线程之前就创建好所有需要的互斥信号量对象来避免线程间的竞争才是最安全的。Objective-C中的同步特性是支持递归的。一个线程是可以以递归的方式多次使用同一个信号量的；其他的线程会被阻塞知道这个线程释放了自己所有的和该信号量相关的锁，也就是说通过正常执行或者是通过异常处理的方式退出了所有的@synchronized()代码块
+         */
         @synchronized(self) {
             //判断有没有文件
             if (![self.coreDataManager selectCoreDataOfDownLoadFileWithFileUrl:urlStr]) {
@@ -187,8 +193,6 @@ static LDownRequestObject *_downRequestObject = nil;
 
 /**
  *  添加到正在加载的数组中，执行下载
- *
- *  @return <#return value description#>
  */
 - (void)moveReadyToStartDownAction
 {
@@ -197,7 +201,7 @@ static LDownRequestObject *_downRequestObject = nil;
         @synchronized(self) {
             NSArray *loadingArray = [self.coreDataManager selectCoreDataWithDownLoading];
             NSArray *readyLoadArray = [self.coreDataManager selectCoreDataOfCountWithReadyDownLoad];
-            if ((!loadingArray || [loadingArray count] < LMAXDOWNFILENUMBER) && [readyLoadArray count] > 0) {
+            if ((!loadingArray || [loadingArray count] < ZGCMAXDOWNFILENUMBER) && [readyLoadArray count] > 0) {
                 //获取准备数据 插入到正下载
                 ReadyDownLoad *readyDownLoad = [self.coreDataManager selectCoreDataWithReadyDownLoad];
                 if (readyDownLoad) {
@@ -258,12 +262,11 @@ static LDownRequestObject *_downRequestObject = nil;
     });
 }
 
+
+#pragma mark - NSURLSessionDownloadDelegate
 /**
  *  下载成功调用:下载成功后的文件移动到我们想要的目标路径
  *
- *  @param session      <#session description#>
- *  @param downloadTask <#downloadTask description#>
- *  @param location     <#location description#>
  */
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL*)location
 {
@@ -471,7 +474,7 @@ expectedTotalBytes:(int64_t)expectedTotalBytes {
             NSURLSessionConfiguration *defaultConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
             return [NSURLSession sessionWithConfiguration:defaultConfig delegate:self delegateQueue:nil];
         }else if (self.appState == 2) {//进入后台
-            NSURLSessionConfiguration *config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[NSString stringWithFormat:@"complainceBackgroundDownLoad%d",self.backgroundSession++]];//设置不一样的标识，否则会使用上一个
+            NSURLSessionConfiguration *config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[NSString stringWithFormat:@"complainceBackgroundDownLoad%ld", (long)self.backgroundSession++]];//设置不一样的标识，否则会使用上一个
             return [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
         }
     }
