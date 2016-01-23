@@ -8,8 +8,13 @@
 
 #import "ZGCBaseViewController.h"
 #import "ZGCNavigationController.h"
-@interface ZGCBaseViewController ()<UIGestureRecognizerDelegate>
+#import <MBProgressHUD.h>
+#import "ZGCDataService.h"
 
+@interface ZGCBaseViewController ()<UIGestureRecognizerDelegate>
+{
+    MBProgressHUD *_hud;
+}
 @end
 
 @implementation ZGCBaseViewController
@@ -43,9 +48,7 @@
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
 
-    
-    [self.navigationController.navigationBar setTitleTextAttributes: @{NSForegroundColorAttributeName: [UIColor blackColor]}];
-    
+    [self setNavTitleColor:[UIColor blackColor]];
     
     //设置导航栏背景图片
     [self.navigationController.navigationBar setBackgroundImage:PNGImage(@"navigationbar_bg_64")
@@ -53,13 +56,24 @@
     /**];
      *    [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]]; 在不做navigationBar的背景图片操作前提下，设置颜色才能起作用
      */
-//    //去掉导航栏下边的分割线
-//    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    //去掉导航栏下边的分割线
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     //设置状态栏的背景色和字体色
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
+/**
+ *  设置控制器标题颜色
+ *
+ *  @param color 颜色
+ */
+- (void)setNavTitleColor:(UIColor*)color {
+    [self.navigationController.navigationBar setTitleTextAttributes: @{NSForegroundColorAttributeName:color}];
+}
 
+/**
+ *  创建返回按钮
+ */
 - (void)initBackBtn
 {
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -86,6 +100,9 @@
     self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, btn_right, nil];
 }
 
+/**
+ *  返回
+ */
 - (void)backButtonClicked {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -94,7 +111,59 @@
     
 }
 
+/**
+ * 添加Loading视图
+ *
+ *  @param title 提示内容
+ */
+- (void)showLoadingStatusHUD:(NSString *)title
+{
+    _hud = [[MBProgressHUD alloc] init];
+    [self.view addSubview:_hud];
+    _hud.tag = 444;
+    _hud.labelText = title;
+    //    hud.dimBackground = YES;
+    //    hud.alpha = 0.5;
+    _hud.mode = MBProgressHUDModeIndeterminate;
+    _hud.yOffset = -(KScreenHeight-64-44)/10;
+//    hud.margin = [Utils setFontSizeWithMainScreenWidth:8.0]*3;
+    
+//    hud.labelFont = sysFont([Utils setFontSizeWithMainScreenWidth:14.0]);
+    [_hud show:YES];
+}
+/**
+ * 移除视图
+ */
+- (void)removeHud
+{
+    [_hud removeFromSuperview];
+    _hud = nil;
+}
 
+/**
+ *  加载数据和提示
+ *
+ *  @param statusText        提示内容
+ *  @param url               接口
+ *  @param parameters        参数
+ *  @param completionHandler 回调
+ */
+
+- (void)showLoadingStatus:(NSString *)statusText
+           requestWithUrl:(NSString *)url
+              parameters:(id)parameters
+     completionHandler:(ZGCDataRequestCompletionBlock)completionHandler {
+    
+    [self showLoadingStatusHUD:statusText];
+    
+    [ZGCDataService requestWithUrl:url
+                        parameters:nil
+                 completionHandler:^(id result) {
+                     completionHandler(result);
+                     [self removeHud];
+                 }];
+    
+}
 
 
 

@@ -9,7 +9,6 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 #import <UIKit/UIKit.h>
-#import "ZGCBaseViewController.h"
 #import "UIViewExt.h"
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
@@ -19,6 +18,14 @@ static NSString * const ZGCDownRequestSendBackgroundDownloadNotification  = @"co
 static NSString * const ZGCDownRequestBecomeActiveDownloadNotification  = @"com.downrequestobject.becomeactivedownload";
 
 static NSString * const ZGCDownRequestSaveResumeDataWithCrashNotification  = @"com.downrequestobject.saveresumedatawithcrash";
+
+
+#define BASEURL @"http://mobile.ximalaya.com/mobile/others/ca/album/track/247779/true/"
+
+#define DEVICECOMPONENT @"device=iPhone"
+
+
+typedef void(^ZGCDataRequestCompletionBlock)(id result);
 
 
 //根据图片名返回对应的图片

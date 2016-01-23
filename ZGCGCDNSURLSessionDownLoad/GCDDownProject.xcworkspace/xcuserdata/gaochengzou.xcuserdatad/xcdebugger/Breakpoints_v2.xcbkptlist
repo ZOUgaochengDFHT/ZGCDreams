@@ -26,7 +26,7 @@
                   moduleName = "GCDDownProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gaochengzou/Desktop/ZGCDreams/ZGCGCDNSURLSessionDownLoad/LDownFile/LRequest/LDownRequestObject.m"
-                  timestampString = "475219587.358569"
+                  timestampString = "475227907.784536"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "396"
@@ -41,7 +41,7 @@
                   moduleName = "GCDDownProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gaochengzou/Desktop/ZGCDreams/ZGCGCDNSURLSessionDownLoad/LDownFile/LRequest/LDownRequestObject.m"
-                  timestampString = "475219587.35885"
+                  timestampString = "475227907.784841"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "396"
@@ -49,6 +49,22 @@
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Find/ZGCMovieMediaListViewController.m"
+            timestampString = "475226476.204321"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

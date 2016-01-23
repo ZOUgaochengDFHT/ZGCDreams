@@ -7,7 +7,6 @@
 //
 
 #import "ZGCMovieMediaListViewController.h"
-
 @interface ZGCMovieMediaListViewController ()
 
 @end
@@ -17,11 +16,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"光影留声机【周三】";
+    
+//    [self setNavTitleColor:[UIColor whiteColor]];
+    
+    [self showLoadingStatus:@""
+             requestWithUrl:[NSString stringWithFormat:@"%@%@%@", BASEURL, @"1/20?", DEVICECOMPONENT]
+                 parameters:nil
+          completionHandler:^(id result) {
+              MYLog(@"result :%@", result);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+
 }
 
 /*
