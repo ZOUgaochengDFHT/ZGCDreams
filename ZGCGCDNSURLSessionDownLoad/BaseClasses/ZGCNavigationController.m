@@ -224,7 +224,7 @@
     }
     MYLog(@"----   %d     popView",_pan.enabled);
     if (self.view.frame.origin.x == 0) {
-        backImageView.transform = CGAffineTransformMakeScale(0.95, 0.95);
+        backImageView.transform = CGAffineTransformMakeScale(1.0, 1.0);
     }
     [UIView animateWithDuration:animationTime animations:^{
         [self moveViewWithX:KScreenWidth];
@@ -297,9 +297,9 @@
     CGRect frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
     frame.origin.x = x;
     self.view.frame = frame;
-    float scale = (x/6400)+0.95;
+//    float scale = (x/6400)+0.95;
     float alpha = 0.4 - (x/800);
-    backImageView.transform = CGAffineTransformMakeScale(scale, scale);
+    backImageView.transform = CGAffineTransformMakeScale(1.0, 1.0);
     alphaView.alpha = alpha;
 }
 

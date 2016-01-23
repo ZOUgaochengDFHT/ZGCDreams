@@ -10,7 +10,19 @@
 		299D7D0F867AD339657F6315 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573B475CC9932BC2D6F0F6EF /* libPods.a */; };
 		BC40626A1C51F3D800C578EB /* ZGCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4062671C51F3D800C578EB /* ZGCBaseViewController.m */; };
 		BC40626B1C51F3D800C578EB /* ZGCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4062691C51F3D800C578EB /* ZGCNavigationController.m */; };
+		BC4062711C51FC4D00C578EB /* ZGCBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4062701C51FC4D00C578EB /* ZGCBaseTabBarController.m */; };
+		BC4062781C51FD8F00C578EB /* ZGCFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4062771C51FD8F00C578EB /* ZGCFindViewController.m */; };
+		BC40627B1C51FD9D00C578EB /* ZGCDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC40627A1C51FD9D00C578EB /* ZGCDownloadViewController.m */; };
+		BC40627E1C51FDA500C578EB /* ZGCSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC40627D1C51FDA500C578EB /* ZGCSoundViewController.m */; };
+		BC4062811C51FDBF00C578EB /* ZGCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4062801C51FDBF00C578EB /* ZGCMeViewController.m */; };
+		BC75A0EE1C52744F00ED172B /* ZGCPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC75A0ED1C52744F00ED172B /* ZGCPlayViewController.m */; };
+		BC75A0F21C53137800ED172B /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = BC75A0F11C53137800ED172B /* UIViewExt.m */; };
 		BC82304A1C50CF3200905196 /* Media.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC8230491C50CF3200905196 /* Media.plist */; };
+		BC8577C51C5344F90002335B /* ZGCMovieMediaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8577C41C5344F90002335B /* ZGCMovieMediaListViewController.m */; };
+		BC8793421C5224B400ECE48E /* ZGCMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8793411C5224B400ECE48E /* ZGCMovieViewController.m */; };
+		BC8793451C522EC600ECE48E /* ZGCBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8793441C522EC600ECE48E /* ZGCBaseTableView.m */; };
+		BC8793481C522F2D00ECE48E /* ZGCMovieListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8793471C522F2D00ECE48E /* ZGCMovieListTableView.m */; };
+		BC87934B1C522F6500ECE48E /* ZGCMovieListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC87934A1C522F6500ECE48E /* ZGCMovieListTableViewCell.m */; };
 		ECBBB2EF1B29641900560678 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBB2EE1B29641900560678 /* main.m */; };
 		ECBBB2F21B29641900560678 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBB2F11B29641900560678 /* AppDelegate.m */; };
 		ECBBB2F51B29641900560678 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBB2F41B29641900560678 /* ViewController.m */; };
@@ -48,8 +60,32 @@
 		BC4062671C51F3D800C578EB /* ZGCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCBaseViewController.m; sourceTree = "<group>"; };
 		BC4062681C51F3D800C578EB /* ZGCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCNavigationController.h; sourceTree = "<group>"; };
 		BC4062691C51F3D800C578EB /* ZGCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCNavigationController.m; sourceTree = "<group>"; };
+		BC40626F1C51FC4D00C578EB /* ZGCBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCBaseTabBarController.h; sourceTree = "<group>"; };
+		BC4062701C51FC4D00C578EB /* ZGCBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCBaseTabBarController.m; sourceTree = "<group>"; };
+		BC4062761C51FD8F00C578EB /* ZGCFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCFindViewController.h; sourceTree = "<group>"; };
+		BC4062771C51FD8F00C578EB /* ZGCFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCFindViewController.m; sourceTree = "<group>"; };
+		BC4062791C51FD9D00C578EB /* ZGCDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCDownloadViewController.h; sourceTree = "<group>"; };
+		BC40627A1C51FD9D00C578EB /* ZGCDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCDownloadViewController.m; sourceTree = "<group>"; };
+		BC40627C1C51FDA500C578EB /* ZGCSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCSoundViewController.h; sourceTree = "<group>"; };
+		BC40627D1C51FDA500C578EB /* ZGCSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCSoundViewController.m; sourceTree = "<group>"; };
+		BC40627F1C51FDBF00C578EB /* ZGCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCMeViewController.h; sourceTree = "<group>"; };
+		BC4062801C51FDBF00C578EB /* ZGCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCMeViewController.m; sourceTree = "<group>"; };
+		BC75A0EC1C52744F00ED172B /* ZGCPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCPlayViewController.h; sourceTree = "<group>"; };
+		BC75A0ED1C52744F00ED172B /* ZGCPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCPlayViewController.m; sourceTree = "<group>"; };
+		BC75A0F01C53137800ED172B /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		BC75A0F11C53137800ED172B /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		BC8230481C50CA9800905196 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC8230491C50CF3200905196 /* Media.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Media.plist; sourceTree = "<group>"; };
+		BC8577C31C5344F90002335B /* ZGCMovieMediaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCMovieMediaListViewController.h; sourceTree = "<group>"; };
+		BC8577C41C5344F90002335B /* ZGCMovieMediaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCMovieMediaListViewController.m; sourceTree = "<group>"; };
+		BC8793401C5224B400ECE48E /* ZGCMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCMovieViewController.h; sourceTree = "<group>"; };
+		BC8793411C5224B400ECE48E /* ZGCMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCMovieViewController.m; sourceTree = "<group>"; };
+		BC8793431C522EC600ECE48E /* ZGCBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCBaseTableView.h; sourceTree = "<group>"; };
+		BC8793441C522EC600ECE48E /* ZGCBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCBaseTableView.m; sourceTree = "<group>"; };
+		BC8793461C522F2D00ECE48E /* ZGCMovieListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCMovieListTableView.h; sourceTree = "<group>"; };
+		BC8793471C522F2D00ECE48E /* ZGCMovieListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCMovieListTableView.m; sourceTree = "<group>"; };
+		BC8793491C522F6500ECE48E /* ZGCMovieListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCMovieListTableViewCell.h; sourceTree = "<group>"; };
+		BC87934A1C522F6500ECE48E /* ZGCMovieListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCMovieListTableViewCell.m; sourceTree = "<group>"; };
 		C56F659C0249D3919200A4D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ECBBB2E91B29641900560678 /* GCDDownProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDDownProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBBB2ED1B29641900560678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,13 +166,85 @@
 				BC4062671C51F3D800C578EB /* ZGCBaseViewController.m */,
 				BC4062681C51F3D800C578EB /* ZGCNavigationController.h */,
 				BC4062691C51F3D800C578EB /* ZGCNavigationController.m */,
+				BC40626F1C51FC4D00C578EB /* ZGCBaseTabBarController.h */,
+				BC4062701C51FC4D00C578EB /* ZGCBaseTabBarController.m */,
+				BC8793431C522EC600ECE48E /* ZGCBaseTableView.h */,
+				BC8793441C522EC600ECE48E /* ZGCBaseTableView.m */,
 			);
 			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		BC4062721C51FD6400C578EB /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				BC4062791C51FD9D00C578EB /* ZGCDownloadViewController.h */,
+				BC40627A1C51FD9D00C578EB /* ZGCDownloadViewController.m */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		BC4062731C51FD6400C578EB /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				BC4062761C51FD8F00C578EB /* ZGCFindViewController.h */,
+				BC4062771C51FD8F00C578EB /* ZGCFindViewController.m */,
+				BC8793401C5224B400ECE48E /* ZGCMovieViewController.h */,
+				BC8793411C5224B400ECE48E /* ZGCMovieViewController.m */,
+				BC8793461C522F2D00ECE48E /* ZGCMovieListTableView.h */,
+				BC8793471C522F2D00ECE48E /* ZGCMovieListTableView.m */,
+				BC8793491C522F6500ECE48E /* ZGCMovieListTableViewCell.h */,
+				BC87934A1C522F6500ECE48E /* ZGCMovieListTableViewCell.m */,
+				BC8577C31C5344F90002335B /* ZGCMovieMediaListViewController.h */,
+				BC8577C41C5344F90002335B /* ZGCMovieMediaListViewController.m */,
+			);
+			path = Find;
+			sourceTree = "<group>";
+		};
+		BC4062741C51FD6C00C578EB /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				BC40627C1C51FDA500C578EB /* ZGCSoundViewController.h */,
+				BC40627D1C51FDA500C578EB /* ZGCSoundViewController.m */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		BC4062751C51FD7300C578EB /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				BC40627F1C51FDBF00C578EB /* ZGCMeViewController.h */,
+				BC4062801C51FDBF00C578EB /* ZGCMeViewController.m */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		BC75A0EB1C52742700ED172B /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				BC75A0EC1C52744F00ED172B /* ZGCPlayViewController.h */,
+				BC75A0ED1C52744F00ED172B /* ZGCPlayViewController.m */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
+		BC75A0EF1C53135A00ED172B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BC75A0F01C53137800ED172B /* UIViewExt.h */,
+				BC75A0F11C53137800ED172B /* UIViewExt.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		ECBBB2E01B29641900560678 = {
 			isa = PBXGroup;
 			children = (
+				BC75A0EF1C53135A00ED172B /* Common */,
+				BC75A0EB1C52742700ED172B /* Play */,
+				BC4062751C51FD7300C578EB /* Me */,
+				BC4062741C51FD6C00C578EB /* Sound */,
+				BC4062721C51FD6400C578EB /* Download */,
+				BC4062731C51FD6400C578EB /* Find */,
 				BC4062651C51F3D800C578EB /* BaseClasses */,
 				ECBBB3121B29655D00560678 /* LDownFile */,
 				ECBBB2EB1B29641900560678 /* GCDDownProject */,
@@ -407,18 +515,30 @@
 				ECBBB32F1B29655D00560678 /* DownLoaded.m in Sources */,
 				ECBBB2F51B29641900560678 /* ViewController.m in Sources */,
 				ECBBB3351B29655D00560678 /* LDownRequestObject.m in Sources */,
+				BC75A0F21C53137800ED172B /* UIViewExt.m in Sources */,
+				BC87934B1C522F6500ECE48E /* ZGCMovieListTableViewCell.m in Sources */,
+				BC75A0EE1C52744F00ED172B /* ZGCPlayViewController.m in Sources */,
 				ECBBB2F21B29641900560678 /* AppDelegate.m in Sources */,
 				ECBBB3481B29658A00560678 /* ObjectUtils.m in Sources */,
+				BC8577C51C5344F90002335B /* ZGCMovieMediaListViewController.m in Sources */,
+				BC4062781C51FD8F00C578EB /* ZGCFindViewController.m in Sources */,
 				ECBBB3301B29655D00560678 /* DownLoadFile.m in Sources */,
 				ECBBB32E1B29655D00560678 /* CoreDataManager.m in Sources */,
 				ECBBB32D1B29655D00560678 /* ComplianceDownFile.xcdatamodeld in Sources */,
+				BC40627B1C51FD9D00C578EB /* ZGCDownloadViewController.m in Sources */,
 				ECBBB3321B29655D00560678 /* PauseDownLoad.m in Sources */,
 				BC40626A1C51F3D800C578EB /* ZGCBaseViewController.m in Sources */,
+				BC8793481C522F2D00ECE48E /* ZGCMovieListTableView.m in Sources */,
 				ECBBB3311B29655D00560678 /* DownLoading.m in Sources */,
 				BC40626B1C51F3D800C578EB /* ZGCNavigationController.m in Sources */,
+				BC40627E1C51FDA500C578EB /* ZGCSoundViewController.m in Sources */,
 				ECBBB2EF1B29641900560678 /* main.m in Sources */,
+				BC4062711C51FC4D00C578EB /* ZGCBaseTabBarController.m in Sources */,
+				BC8793421C5224B400ECE48E /* ZGCMovieViewController.m in Sources */,
+				BC4062811C51FDBF00C578EB /* ZGCMeViewController.m in Sources */,
 				ECBBB3331B29655D00560678 /* ReadyDownLoad.m in Sources */,
 				ECBBB3441B29658A00560678 /* AppPlaySound.m in Sources */,
+				BC8793451C522EC600ECE48E /* ZGCBaseTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

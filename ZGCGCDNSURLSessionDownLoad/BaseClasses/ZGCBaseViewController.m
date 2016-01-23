@@ -14,6 +14,7 @@
 
 @implementation ZGCBaseViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -22,16 +23,17 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     
     self.navigationController.navigationBar.translucent = NO;
+#pragma mark - 如果添加了这个全局手势，会造成继承ZGCBaseViewController的视图控制器上的UITableView的didSelectRowAtIndexPath的无法调用
     /**
      *@利用手势控制键盘的收起
      */
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self
-                                                                         action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self
+//                                                                         action:@selector(dismissKeyboard)];
+//    [self.view addGestureRecognizer:tap];
     /**
      *@设置controller背景颜色和创建自定义返回按钮
      */
-    if (self.navigationController.viewControllers.count>1) {
+    if (self.navigationController.viewControllers.count > 1) {
         [self initBackBtn];
     }
     
@@ -41,6 +43,20 @@
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
 
+    
+    [self.navigationController.navigationBar setTitleTextAttributes: @{NSForegroundColorAttributeName: [UIColor blackColor]}];
+    
+    
+    //设置导航栏背景图片
+    [self.navigationController.navigationBar setBackgroundImage:PNGImage(@"navigationbar_bg_64")
+                                                  forBarMetrics:UIBarMetricsDefault];
+    /**];
+     *    [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]]; 在不做navigationBar的背景图片操作前提下，设置颜色才能起作用
+     */
+//    //去掉导航栏下边的分割线
+//    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    //设置状态栏的背景色和字体色
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 
@@ -50,8 +66,13 @@
     /**
      *@设置frame只能控制按钮的大小
      */
-    backBtn.frame= CGRectMake(0, 0, 20, 20);
-    [backBtn setImage:PNGImage(@"icon_back") forState:UIControlStateNormal];
+    NSString *imgNameStr = @"icon_back";
+    if (self.navigationController.viewControllers.count == 2) {
+        imgNameStr = @"icon_back_h";
+    }
+    
+    backBtn.frame = CGRectMake(0, 0, 18, 18);
+    [backBtn setImage:PNGImage(imgNameStr) forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *btn_right = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
@@ -66,8 +87,16 @@
 }
 
 - (void)backButtonClicked {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)dismissKeyboard {
     
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
