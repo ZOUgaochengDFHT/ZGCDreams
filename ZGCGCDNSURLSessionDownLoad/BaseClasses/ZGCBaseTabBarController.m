@@ -61,7 +61,6 @@
     _playImgView.image = npPlayImage;
     bgImgView.userInteractionEnabled = YES;
     [bgImgView addSubview:_playImgView];
-    
 }
 
 - (void)playBtnAction {

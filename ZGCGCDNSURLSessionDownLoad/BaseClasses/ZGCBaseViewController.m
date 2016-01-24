@@ -26,8 +26,6 @@
     
 #pragma mark --- 因为使用了自定义的pop，需要关闭系统右滑返回手势
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    
-    self.navigationController.navigationBar.translucent = NO;
 #pragma mark - 如果添加了这个全局手势，会造成继承ZGCBaseViewController的视图控制器上的UITableView的didSelectRowAtIndexPath的无法调用
     /**
      *@利用手势控制键盘的收起
@@ -47,12 +45,9 @@
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
-
-    [self setNavTitleColor:[UIColor blackColor]];
     
-    //设置导航栏背景图片
-    [self.navigationController.navigationBar setBackgroundImage:PNGImage(@"navigationbar_bg_64")
-                                                  forBarMetrics:UIBarMetricsDefault];
+   
+
     /**];
      *    [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]]; 在不做navigationBar的背景图片操作前提下，设置颜色才能起作用
      */
@@ -61,6 +56,32 @@
     //设置状态栏的背景色和字体色
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    if (self.navigationController.viewControllers.count >= 3) {
+        /**
+         *  设置导航栏透明
+         */
+        
+        [self setNavTitleColor:[UIColor whiteColor]];
+
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                      forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.shadowImage = [UIImage new];
+        self.navigationController.navigationBar.translucent = YES;
+    }else {
+        [self setNavTitleColor:[UIColor blackColor]];
+
+        [self.navigationController.navigationBar setBackgroundImage:PNGImage(@"navigationbar_bg_64")
+                                                      forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.translucent = NO;
+        
+    }
+}
+
+
 
 /**
  *  设置控制器标题颜色
