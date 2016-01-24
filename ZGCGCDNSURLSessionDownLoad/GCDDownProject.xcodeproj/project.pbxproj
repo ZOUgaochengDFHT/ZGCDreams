@@ -28,8 +28,8 @@
 		BC8587A01C536AE10002335B /* ZGCMovieAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC85879F1C536AE10002335B /* ZGCMovieAlbumModel.m */; };
 		BC8587A31C536CD60002335B /* ZGCTracksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8587A21C536CD60002335B /* ZGCTracksModel.m */; };
 		BC8587A61C53728F0002335B /* ZGCLiveBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8587A51C53728F0002335B /* ZGCLiveBlurView.m */; };
-		BC8587AE1C53AFA30002335B /* bgCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC8587AD1C53AFA30002335B /* bgCover.jpg */; };
 		BC8793451C522EC600ECE48E /* ZGCBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8793441C522EC600ECE48E /* ZGCBaseTableView.m */; };
+		BC9806E21C54FF9A00FF1CD4 /* bgCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC9806E11C54FF9A00FF1CD4 /* bgCover.jpg */; };
 		ECBBB2EF1B29641900560678 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBB2EE1B29641900560678 /* main.m */; };
 		ECBBB2F21B29641900560678 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBB2F11B29641900560678 /* AppDelegate.m */; };
 		ECBBB2F51B29641900560678 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBB2F41B29641900560678 /* ViewController.m */; };
@@ -103,9 +103,9 @@
 		BC8587A21C536CD60002335B /* ZGCTracksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCTracksModel.m; sourceTree = "<group>"; };
 		BC8587A41C53728F0002335B /* ZGCLiveBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCLiveBlurView.h; sourceTree = "<group>"; };
 		BC8587A51C53728F0002335B /* ZGCLiveBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCLiveBlurView.m; sourceTree = "<group>"; };
-		BC8587AD1C53AFA30002335B /* bgCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgCover.jpg; sourceTree = "<group>"; };
 		BC8793431C522EC600ECE48E /* ZGCBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCBaseTableView.h; sourceTree = "<group>"; };
 		BC8793441C522EC600ECE48E /* ZGCBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCBaseTableView.m; sourceTree = "<group>"; };
+		BC9806E11C54FF9A00FF1CD4 /* bgCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgCover.jpg; sourceTree = "<group>"; };
 		C56F659C0249D3919200A4D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ECBBB2E91B29641900560678 /* GCDDownProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDDownProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBBB2ED1B29641900560678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 				BC85879F1C536AE10002335B /* ZGCMovieAlbumModel.m */,
 				BC8587A11C536CD60002335B /* ZGCTracksModel.h */,
 				BC8587A21C536CD60002335B /* ZGCTracksModel.m */,
-				BC8587AD1C53AFA30002335B /* bgCover.jpg */,
+				BC9806E11C54FF9A00FF1CD4 /* bgCover.jpg */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -500,9 +500,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBBB2F81B29641900560678 /* Main.storyboard in Resources */,
-				BC8587AE1C53AFA30002335B /* bgCover.jpg in Resources */,
 				BC82304A1C50CF3200905196 /* Media.plist in Resources */,
 				ECBBB2FD1B29641900560678 /* LaunchScreen.xib in Resources */,
+				BC9806E21C54FF9A00FF1CD4 /* bgCover.jpg in Resources */,
 				ECBBB2FA1B29641900560678 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -419,7 +419,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N4f-Gb-wUQ" customClass="ZGCMovieListTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ZGCMovieListTableViewCell" rowHeight="100" id="2Ss-WN-qZ1" customClass="ZGCMovieListTableViewCell">
@@ -489,7 +489,7 @@
                         <constraints>
                             <constraint firstItem="N4f-Gb-wUQ" firstAttribute="top" secondItem="o5Z-Od-219" secondAttribute="bottom" constant="-64" id="4Cc-cY-bFA"/>
                             <constraint firstItem="N4f-Gb-wUQ" firstAttribute="leading" secondItem="CcQ-RP-3ex" secondAttribute="leadingMargin" constant="-20" id="EOe-q4-Thd"/>
-                            <constraint firstItem="r0c-GL-jks" firstAttribute="top" secondItem="N4f-Gb-wUQ" secondAttribute="bottom" id="ebi-hz-t7b"/>
+                            <constraint firstItem="r0c-GL-jks" firstAttribute="top" secondItem="N4f-Gb-wUQ" secondAttribute="bottom" constant="-49" id="ebi-hz-t7b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N4f-Gb-wUQ" secondAttribute="trailing" constant="-20" id="jhS-M7-3Nf"/>
                         </constraints>
                     </view>

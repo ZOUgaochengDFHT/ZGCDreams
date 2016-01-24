@@ -43,7 +43,7 @@
 //    [self setNavTitleColor:[UIColor whiteColor]];
     
     [self showLoadingStatus:@""
-             requestWithUrl:[NSString stringWithFormat:@"%@%@%@", BASEURL, @"1/20?", DEVICECOMPONENT]
+             requestWithUrl:BASEURL
                  parameters:nil
           completionHandler:^(id result) {
               MYLog(@"result :%@", result);
@@ -62,25 +62,35 @@
     }];
     _movieListTableView.delegate = self;
     _movieListTableView.dataSource = self;
+//    self.automaticallyAdjustsScrollViewInsets = YES;
     
    }
 
 - (void)setMovieAlbumModel:(ZGCMovieAlbumModel *)movieAlbumModel {
     _movieAlbumModel = movieAlbumModel;
+    
+    UIImageView *contentImgView = [[UIImageView alloc]initWithFrame:(CGRect){0, 0, KScreenWidth, 200}];
+    [contentImgView sd_setImageWithURL:[NSURL URLWithString:_movieAlbumModel.coverOrigin] placeholderImage:nil];
+    contentImgView.contentMode = UIViewContentModeBottom;
+    _movieListTableView.tableHeaderView = contentImgView;
+    
     UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 200)];
     
 //    [backgroundView sd_setImageWithURL:[NSURL URLWithString:_movieAlbumModel.coverOrigin] placeholderImage:PNGImage(@"shadow_albumView_header")];
 //    backgroundView.isGlassEffectOn = YES;
-    backgroundView.image = PNGImage(@"bgCover.jpg");
-    backgroundView.contentMode = UIViewContentModeBottomRight;
-    backgroundView.alpha = 0.5;
-    _movieListTableView.tableHeaderView = backgroundView;
-//    backgroundView.scrollView = _movieListTableView;
+    backgroundView.image = PNGImage(@"shadow_albumView_header");
+//    backgroundView.alpha = 0.9;
+    backgroundView.contentMode = contentImgView.contentMode;
+    [contentImgView addSubview:backgroundView];
 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _movieMediaListArr.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
