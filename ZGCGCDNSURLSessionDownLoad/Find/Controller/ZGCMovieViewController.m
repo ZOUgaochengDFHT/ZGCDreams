@@ -10,7 +10,9 @@
 #import "ZGCMovieListTableViewCell.h"
 #import "ZGCMovieListTableView.h"
 @interface ZGCMovieViewController ()<UITableViewDataSource, UITableViewDelegate>
-
+{
+    UIView *_headView;
+}
 @property (weak, nonatomic) IBOutlet ZGCMovieListTableView *movieListTableView;
 @end
 @implementation ZGCMovieViewController
@@ -22,10 +24,48 @@
     self.navigationItem.title = @"电影";
     _movieListTableView.delegate = self;
     _movieListTableView.dataSource = self;
+    
+    _movieListTableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
+    //添加监听，动态观察tableview的contentOffset的改变
+    [_movieListTableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    
+    
+    _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+    _headView.backgroundColor =[UIColor redColor];
+    [self.view addSubview:_headView];
+    
+}
+
+#pragma mark KVC 回调
+//本例设置headerView的最大高度为200，最小为64
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"contentOffset"])
+    {
+        CGPoint offset = [change[NSKeyValueChangeNewKey] CGPointValue];
+        if (offset.y <= 0 && -offset.y >= 64) {
+            
+            CGRect newFrame = CGRectMake(0, 0, self.view.frame.size.width, -offset.y);
+            _headView.frame = newFrame;
+            if (-offset.y <=200)
+            {
+                _movieListTableView.contentInset = UIEdgeInsetsMake(-offset.y, 0, 0, 0);
+            }
+        } else {
+            CGRect newFrame = CGRectMake(0, 0, self.view.frame.size.width, 64);
+            _headView.frame = newFrame;
+            _movieListTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+        }
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

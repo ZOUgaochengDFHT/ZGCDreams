@@ -60,7 +60,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    if (self.navigationController.viewControllers.count >= 3) {
+    if (self.navigationController.viewControllers.count >= 2) {
         /**
          *  设置导航栏透明
          */
