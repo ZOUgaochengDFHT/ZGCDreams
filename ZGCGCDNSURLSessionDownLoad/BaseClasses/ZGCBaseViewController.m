@@ -52,7 +52,7 @@
      *    [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]]; 在不做navigationBar的背景图片操作前提下，设置颜色才能起作用
      */
     //去掉导航栏下边的分割线
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
     //设置状态栏的背景色和字体色
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }

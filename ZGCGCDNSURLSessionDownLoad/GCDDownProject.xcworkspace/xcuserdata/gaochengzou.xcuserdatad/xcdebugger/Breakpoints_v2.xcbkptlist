@@ -26,7 +26,7 @@
                   moduleName = "GCDDownProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gaochengzou/Desktop/ZGCDreams/ZGCGCDNSURLSessionDownLoad/LDownFile/LRequest/LDownRequestObject.m"
-                  timestampString = "475340928.534061"
+                  timestampString = "475380542.791229"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "396"
@@ -41,7 +41,7 @@
                   moduleName = "GCDDownProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gaochengzou/Desktop/ZGCDreams/ZGCGCDNSURLSessionDownLoad/LDownFile/LRequest/LDownRequestObject.m"
-                  timestampString = "475340928.534263"
+                  timestampString = "475380542.791525"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "396"
@@ -64,22 +64,6 @@
             startingLineNumber = "27"
             endingLineNumber = "27"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BaseClasses/ZGCLiveBlurView.m"
-            timestampString = "475245228.487651"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-setBlurLevel:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

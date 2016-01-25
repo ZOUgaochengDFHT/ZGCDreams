@@ -63,25 +63,22 @@
     _movieListTableView.delegate = self;
     _movieListTableView.dataSource = self;
 //    self.automaticallyAdjustsScrollViewInsets = YES;
-    
-   }
+}
 
 - (void)setMovieAlbumModel:(ZGCMovieAlbumModel *)movieAlbumModel {
     _movieAlbumModel = movieAlbumModel;
     
-    UIImageView *contentImgView = [[UIImageView alloc]initWithFrame:(CGRect){0, 0, KScreenWidth, 200}];
+    UIView *bgView = [[UIView alloc]initWithFrame:(CGRect){0, 0, KScreenWidth, 160}];
+    _movieListTableView.tableHeaderView = bgView;
+    
+    UIImageView *contentImgView = [[UIImageView alloc]initWithFrame:(CGRect){0, 160-KScreenWidth, KScreenWidth+4, KScreenWidth}];
     [contentImgView sd_setImageWithURL:[NSURL URLWithString:_movieAlbumModel.coverOrigin] placeholderImage:nil];
-    contentImgView.contentMode = UIViewContentModeBottom;
-    _movieListTableView.tableHeaderView = contentImgView;
-    
-    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 200)];
-    
-//    [backgroundView sd_setImageWithURL:[NSURL URLWithString:_movieAlbumModel.coverOrigin] placeholderImage:PNGImage(@"shadow_albumView_header")];
-//    backgroundView.isGlassEffectOn = YES;
-    backgroundView.image = PNGImage(@"shadow_albumView_header");
-//    backgroundView.alpha = 0.9;
-    backgroundView.contentMode = contentImgView.contentMode;
-    [contentImgView addSubview:backgroundView];
+    [bgView addSubview:contentImgView];
+
+    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 160-KScreenWidth, KScreenWidth+4, KScreenWidth)];
+    backgroundView.image = PNGImage(@"bg_albumView_header");
+    backgroundView.alpha = 0.9;
+    [bgView addSubview:backgroundView];
 
 }
 

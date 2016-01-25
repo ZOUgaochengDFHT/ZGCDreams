@@ -320,7 +320,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XcL-1G-wam" customClass="ZGCMovieListTableView">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ZGCMovieListTableViewCell" rowHeight="100" id="yWf-y6-dAK" customClass="ZGCMovieListTableViewCell">
@@ -393,7 +393,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="XcL-1G-wam" secondAttribute="trailing" constant="-20" id="BTu-LA-R8r"/>
                             <constraint firstItem="XcL-1G-wam" firstAttribute="leading" secondItem="Tvw-f1-wai" secondAttribute="leadingMargin" constant="-20" id="TMo-ak-Jvh"/>
-                            <constraint firstItem="XcL-1G-wam" firstAttribute="top" secondItem="eVz-PV-4wS" secondAttribute="bottom" id="ako-yv-0fa"/>
+                            <constraint firstItem="XcL-1G-wam" firstAttribute="top" secondItem="eVz-PV-4wS" secondAttribute="bottom" constant="-64" id="ako-yv-0fa"/>
                             <constraint firstItem="Ufc-Ta-Vce" firstAttribute="top" secondItem="XcL-1G-wam" secondAttribute="bottom" id="gRZ-WW-FFp"/>
                         </constraints>
                     </view>
