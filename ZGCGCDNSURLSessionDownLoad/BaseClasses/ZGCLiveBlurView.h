@@ -23,4 +23,5 @@
 
 - (void)setBlurLevel:(float)blurLevel;
 
+- (UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur;
 @end

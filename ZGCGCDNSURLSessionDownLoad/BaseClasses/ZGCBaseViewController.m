@@ -60,7 +60,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    if (self.navigationController.viewControllers.count >= 2) {
+    if (self.navigationController.viewControllers.count >= 3) {
         /**
          *  设置导航栏透明
          */
@@ -143,10 +143,12 @@
     [self.view addSubview:_hud];
     _hud.tag = 444;
     _hud.labelText = title;
+    _hud.labelFont = sysFont(14.0);
+
     //    hud.dimBackground = YES;
     //    hud.alpha = 0.5;
     _hud.mode = MBProgressHUDModeIndeterminate;
-    _hud.yOffset = -(KScreenHeight-64-44)/10;
+//    _hud.yOffset = -(KScreenHeight-64-44)/10;
 //    hud.margin = [Utils setFontSizeWithMainScreenWidth:8.0]*3;
     
 //    hud.labelFont = sysFont([Utils setFontSizeWithMainScreenWidth:14.0]);
@@ -162,6 +164,32 @@
 }
 
 /**
+ *  提示
+ *
+ *  @param title 提示内容
+ *  @param image 提示图片
+ *  @param delay 提示时间
+ */
+- (void)showHUD:(NSString *)title
+          image:(UIImage*)image
+withHiddenDelay:(NSTimeInterval)delay
+{
+    MBProgressHUD *hud = [[MBProgressHUD alloc] init];
+    [self.view addSubview:hud];
+    
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.customView = [[UIImageView alloc]initWithImage:image];
+    hud.labelFont = sysFont(14.0);
+    hud.labelText = title;
+    
+    [hud showAnimated:YES whileExecutingBlock:^{
+        sleep(delay);
+    } completionBlock:^{
+        [hud removeFromSuperview];
+    }];
+}
+
+/**
  *  加载数据和提示
  *
  *  @param statusText        提示内容
@@ -172,16 +200,25 @@
 
 - (void)showLoadingStatus:(NSString *)statusText
            requestWithUrl:(NSString *)url
-              parameters:(id)parameters
-     completionHandler:(ZGCDataRequestCompletionBlock)completionHandler {
+               parameters:(id)parameters
+        completionHandler:(ZGCDataRequestCompletionBlock)completionHandler {
     
+    /**
+     *  提示加载数组中的时候不需要文字提示
+     */
     [self showLoadingStatusHUD:statusText];
     
     [ZGCDataService requestWithUrl:url
                         parameters:nil
                  completionHandler:^(id result) {
-                     completionHandler(result);
+                     
+                     if (result != NULL) {
+                         completionHandler(result);
+                     }else {
+                         [self showHUD:@"网络有点卡" image:nil withHiddenDelay:1.0];
+                     }
                      [self removeHud];
+                     
                  }];
     
 }

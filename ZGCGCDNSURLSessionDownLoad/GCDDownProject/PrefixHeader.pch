@@ -19,11 +19,11 @@ static NSString * const ZGCDownRequestBecomeActiveDownloadNotification  = @"com.
 
 static NSString * const ZGCDownRequestSaveResumeDataWithCrashNotification  = @"com.downrequestobject.saveresumedatawithcrash";
 
-#define BASEURL @"http://mobile.ximalaya.com/mobile/others/ca/album/track/247779/true/1/20?device=iPhone"
+//#define BASEURL @"http://mobile.ximalaya.com/mobile/others/ca/album/track/247779/true/1/20?device=iPhone"
 
 //#define BASEURL @"http://mobile.ximalaya.com/mobile/others/ca/album/track/3206558/true/1/20?device=iPhone"
 
-//#define BASEURL @"http://mobile.ximalaya.com/mobile/others/ca/album/track/16428/true/1/20?device=iPhone"
+#define BASEURL @"http://mobile.ximalaya.com/mobile/others/ca/album/track/16428/true/1/20?device=iPhone"
 
 #define DEVICECOMPONENT @"device=iPhone"
 

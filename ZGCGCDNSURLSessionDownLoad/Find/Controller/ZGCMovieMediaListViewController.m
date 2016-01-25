@@ -7,13 +7,14 @@
 //
 
 #import "ZGCMovieMediaListViewController.h"
-#import "ZGCMovieListTableViewCell.h"
+#import "ZGCMediaListTableViewCell.h"
 #import "ZGCMovieListTableView.h"
 #import "ZGCMovieAlbumModel.h"
 #import "ZGCTracksModel.h"
 #import "ZGCMediaListModel.h"
 #import "ZGCLiveBlurView.h"
 #import <UIImageView+WebCache.h>
+#import <SDWebImageManager.h>
 
 @interface ZGCMovieMediaListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet ZGCMovieListTableView *movieListTableView;
@@ -28,9 +29,13 @@
  */
 @property (nonatomic, strong) NSMutableArray *movieMediaListArr;
 
+@property (nonatomic, strong) ZGCLiveBlurView *liveBlurView;
+
 @end
 
 @implementation ZGCMovieMediaListViewController
+
+@synthesize liveBlurView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,13 +76,13 @@
     UIView *bgView = [[UIView alloc]initWithFrame:(CGRect){0, 0, KScreenWidth, 160}];
     _movieListTableView.tableHeaderView = bgView;
     
-    UIImageView *contentImgView = [[UIImageView alloc]initWithFrame:(CGRect){0, 160-KScreenWidth, KScreenWidth+4, KScreenWidth}];
-    [contentImgView sd_setImageWithURL:[NSURL URLWithString:_movieAlbumModel.coverOrigin] placeholderImage:nil];
-    [bgView addSubview:contentImgView];
+    liveBlurView = [[ZGCLiveBlurView alloc]initWithFrame:(CGRect){0, 160-KScreenWidth, KScreenWidth+4, KScreenWidth}];
+    [liveBlurView sd_setImageWithURL:[NSURL URLWithString:_movieAlbumModel.coverOrigin] placeholderImage:nil];
+    [bgView addSubview:liveBlurView];
 
     UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 160-KScreenWidth, KScreenWidth+4, KScreenWidth)];
     backgroundView.image = PNGImage(@"bg_albumView_header");
-    backgroundView.alpha = 0.9;
+    backgroundView.alpha = 0.2;
     [bgView addSubview:backgroundView];
 
 }
@@ -94,18 +99,20 @@
     /*
      *UITableView的MVC模式
      */
-    static NSString *identifier = @"ZGCMovieListTableViewCell";
-    ZGCMovieListTableViewCell *cell;
+    static NSString *identifier = @"ZGCMediaListTableViewCell";
+    ZGCMediaListTableViewCell *cell;
     //定义CustomCell的复用标识,这个就是刚才在CustomCell.xib中设置的那个Identifier,一定要相同,否则无法复用
     //根据复用标识查找TableView里是否有可复用的cell,有则返回给cell
-    cell = (ZGCMovieListTableViewCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
+    cell = (ZGCMediaListTableViewCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
     //判断是否获取到复用cell,没有则从xib中初始化一个cell
     if (!cell) {
         //将Custom.xib中的所有对象载入
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ZGCMovieListTableViewCell" owner:nil options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ZGCMediaListTableViewCell" owner:nil options:nil];
         //第一个对象就是CustomCell了
         cell = [nib objectAtIndex:0];
     }
+    cell.separatorInset = UIEdgeInsetsMake(0, 81, 0, 0);
+    cell.mediaListModel = _movieMediaListArr[indexPath.row];
     
     return cell;
 }

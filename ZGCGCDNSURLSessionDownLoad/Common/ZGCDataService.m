@@ -21,20 +21,22 @@
     NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:10 * 1024 * 1024
                                                       diskCapacity:50 * 1024 * 1024
                                                           diskPath:nil];
+
     
     [config setURLCache:cache];
     
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:nil
                                                                     sessionConfiguration:config];
+    
+    //系统默认网络请求一个超时时间
     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
     
     [[sessionManager dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]
                        completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                            if (error) {
                                MYLog(@"error :%@", error);
-                           }else {
-                               completionHandler(responseObject);
                            }
+                           completionHandler(responseObject);
                        }]resume];
 }
 
