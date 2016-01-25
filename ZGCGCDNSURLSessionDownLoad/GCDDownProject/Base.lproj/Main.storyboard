@@ -491,6 +491,9 @@
                                                         <constraint firstAttribute="width" constant="24" id="wLm-eP-TAd"/>
                                                     </constraints>
                                                     <state key="normal" image="cell_download"/>
+                                                    <connections>
+                                                        <action selector="download:" destination="2Ss-WN-qZ1" eventType="touchUpInside" id="qfr-7G-wSs"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -520,6 +523,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="createdAtLabel" destination="OAD-Rl-HQK" id="VLI-LY-bhz"/>
+                                            <outlet property="downloadBtn" destination="taf-c5-Nh1" id="PBf-wx-k2U"/>
                                             <outlet property="iconImgView" destination="hW4-T4-h08" id="VIH-YQ-ewA"/>
                                             <outlet property="nickNameLabel" destination="POk-l5-B7B" id="pOA-uc-eqm"/>
                                             <outlet property="titleLabel" destination="ppW-7v-35w" id="XHq-TW-wYH"/>

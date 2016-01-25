@@ -33,7 +33,7 @@
     
     titleLabel.font = sysFont(17.0);
     nickNameLabel.font = sysFont(14.0);
-    
+    [downloadBtn setImage:PNGImage(@"cell_downloading") forState:UIControlStateHighlighted];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -51,16 +51,15 @@
     CGFloat rowHeight = [Utils setLabelHeightFitToFontSize:17.0
                                                 contentStr:mediaListModel.title
                                                 labelWidth:KScreenWidth-155];
-    NSDictionary *attributeDic = @{@"titleLabel":titleLabel};
-    NSDictionary *heightMetrics = @{@"height":@(100-rowHeight-8)};
     NSArray *contraintsVerticalArr = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[titleLabel]-height-|"
                                                                              options:0
-                                                                             metrics:heightMetrics
-                                                                               views:attributeDic];
+                                                                             metrics:@{@"height":@(100-rowHeight-8)}
+                                                                               views:NSDictionaryOfVariableBindings(titleLabel)];
     [self.contentView addConstraints:contraintsVerticalArr];
 //    titleLabel.backgroundColor = [UIColor yellowColor];
 }
 
 - (IBAction)download:(UIButton *)sender {
+    MYLog(@"sender.state :%lu", (unsigned long)sender.state);
 }
 @end
