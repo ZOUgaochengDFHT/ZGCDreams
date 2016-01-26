@@ -491,6 +491,7 @@
                                                         <constraint firstAttribute="width" constant="24" id="wLm-eP-TAd"/>
                                                     </constraints>
                                                     <state key="normal" image="cell_download"/>
+                                                    <state key="highlighted" image="cell_downloading"/>
                                                     <connections>
                                                         <action selector="download:" destination="2Ss-WN-qZ1" eventType="touchUpInside" id="qfr-7G-wSs"/>
                                                     </connections>
@@ -552,6 +553,7 @@
     </scenes>
     <resources>
         <image name="cell_download" width="24" height="24"/>
+        <image name="cell_downloading" width="24" height="24"/>
         <image name="cell_sound_play_n" width="18" height="17"/>
         <image name="sound_comments" width="9" height="8"/>
         <image name="sound_duration" width="8" height="8"/>

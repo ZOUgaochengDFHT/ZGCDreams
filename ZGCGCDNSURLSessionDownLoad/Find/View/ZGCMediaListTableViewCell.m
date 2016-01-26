@@ -33,7 +33,6 @@
     
     titleLabel.font = sysFont(17.0);
     nickNameLabel.font = sysFont(14.0);
-    [downloadBtn setImage:PNGImage(@"cell_downloading") forState:UIControlStateHighlighted];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
