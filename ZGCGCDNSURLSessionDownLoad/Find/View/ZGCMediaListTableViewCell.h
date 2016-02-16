@@ -12,11 +12,13 @@
 
 @property (nonatomic, strong) ZGCMediaListModel *mediaListModel;
 
+@property (nonatomic, assign) CGFloat rowHeight;
+
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *txtTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
 @property (weak, nonatomic) IBOutlet UIButton *downloadBtn;
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
 
 - (IBAction)download:(UIButton *)sender;
 @end

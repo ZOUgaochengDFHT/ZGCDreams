@@ -14,7 +14,7 @@
 
 @implementation ZGCMediaListTableViewCell
 @synthesize iconImgView;
-@synthesize titleLabel;
+@synthesize txtTitleLabel;
 @synthesize createdAtLabel;
 @synthesize nickNameLabel;
 @synthesize downloadBtn;
@@ -31,7 +31,9 @@
     [iconImgView.layer setShouldRasterize:YES];
     [iconImgView.layer setRasterizationScale:[UIScreen mainScreen].scale];
     
-    titleLabel.font = sysFont(17.0);
+    txtTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    txtTitleLabel.font = sysFont(17.0);
     nickNameLabel.font = sysFont(14.0);
 }
 
@@ -44,19 +46,21 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [iconImgView sd_setImageWithURL:[NSURL URLWithString:mediaListModel.coverSmall] placeholderImage:PNGImage(@"sound_default")];
-    titleLabel.text = mediaListModel.title;
+    txtTitleLabel.text = mediaListModel.title;
     nickNameLabel.text = [NSString stringWithFormat:@"by %@", mediaListModel.nickname];
     
     CGFloat rowHeight = [Utils setLabelHeightFitToFontSize:17.0
                                                 contentStr:mediaListModel.title
                                                 labelWidth:KScreenWidth-155];
-    NSArray *contraintsVerticalArr = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[titleLabel]-height-|"
-                                                                             options:0
-                                                                             metrics:@{@"height":@(100-rowHeight-8)}
-                                                                               views:NSDictionaryOfVariableBindings(titleLabel)];
-    [self.contentView addConstraints:contraintsVerticalArr];
-//    titleLabel.backgroundColor = [UIColor yellowColor];
+    
+    NSDictionary *metrics = @{@"height":@(_rowHeight-rowHeight-6)};
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[txtTitleLabel]-height-|"
+                                                                   options:0
+                                                                   metrics:metrics
+                                                                     views:NSDictionaryOfVariableBindings(txtTitleLabel)];
+    [self.contentView addConstraints:constraints];
 }
+
 
 - (IBAction)download:(UIButton *)sender {
     MYLog(@"sender.state :%lu", (unsigned long)sender.state);

@@ -10,14 +10,52 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) UIView *launchView;
+
+@property (nonatomic, strong) UIImageView *launchingImgView;
+
 @end
 
 @implementation AppDelegate
-
+@synthesize launchView;
+@synthesize launchingImgView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+#pragma mark - 怎么添加启动动画
+    [self.window makeKeyAndVisible];
+//#pragma mark - 设置启动页面时间
+//    [NSThread sleepForTimeInterval:3.0];
+    
+    launchView = [[[NSBundle mainBundle]loadNibNamed:@"LaunchScreen" owner:nil options:nil]lastObject];
+    launchView.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
+    [self.window addSubview:launchView];
+    
+    UIImage *launchingImg = PNGImage(@"Launching");
+    
+    launchingImgView = [[UIImageView alloc]initWithFrame:(CGRect){(KScreenWidth-launchingImg.size.width)/2, (KScreenHeight-launchingImg.size.height)/2, launchingImg.size.width, launchingImg.size.height}];
+    launchingImgView.image = launchingImg;
+    [launchView addSubview:launchingImgView];
+    [self.window bringSubviewToFront:launchView];
+    
+    [UIView animateWithDuration:3.0
+                     animations:^{
+       launchingImgView.transform = CGAffineTransformRotate(launchingImgView.transform, M_PI);
+    }];
+    
+    [NSTimer scheduledTimerWithTimeInterval:3.0
+                                     target:self
+                                   selector:@selector(removeLun)
+                                   userInfo:nil
+                                    repeats:NO];
     return YES;
+}
+
+- (void)removeLun {
+    [launchingImgView removeFromSuperview];
+    launchingImgView = nil;
+    [launchView removeFromSuperview];
+    launchView = nil;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

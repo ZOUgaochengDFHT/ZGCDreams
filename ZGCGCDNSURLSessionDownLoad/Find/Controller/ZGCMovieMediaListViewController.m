@@ -15,6 +15,7 @@
 #import "ZGCLiveBlurView.h"
 #import <UIImageView+WebCache.h>
 #import <SDWebImageManager.h>
+#import "Utils.h"
 
 @interface ZGCMovieMediaListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet ZGCMovieListTableView *movieListTableView;
@@ -45,16 +46,16 @@
     _movieMediaListArr = [NSMutableArray array];
     
     
-//    [self setNavTitleColor:[UIColor whiteColor]];
+    [self setNavTitleColor:[UIColor whiteColor]];
     
     [self showLoadingStatus:@""
              requestWithUrl:BASEURL
                  parameters:nil
           completionHandler:^(id result) {
+              
               MYLog(@"result :%@", result);
               
               self.movieAlbumModel = [[ZGCMovieAlbumModel alloc]initContentWithDic:[result objectForKey:@"album"]];
-              
               _tracksModel = [[ZGCTracksModel alloc]initContentWithDic:[result objectForKey:@"tracks"]];
               
               [_tracksModel.list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -65,10 +66,48 @@
               [_movieListTableView reloadData];
               
     }];
+    
     _movieListTableView.delegate = self;
     _movieListTableView.dataSource = self;
 //    self.automaticallyAdjustsScrollViewInsets = YES;
+    
+//    [self buildTestDataThen:^{
+//        [_movieListTableView reloadData];
+//    }];
+    
 }
+
+/**
+ *  获取本地文件数据
+ *
+ *  @param then
+ */
+- (void)buildTestDataThen:(void (^)(void))then {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSString *dataFilePath = [[NSBundle mainBundle]pathForResource:@"data" ofType:@"json"];
+        NSData *data = [NSData dataWithContentsOfFile:dataFilePath];
+        
+        NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data
+                                                                 options:NSJSONReadingAllowFragments
+                                                                   error:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.movieAlbumModel = [[ZGCMovieAlbumModel alloc]initContentWithDic:[rootDict objectForKey:@"album"]];
+            _tracksModel = [[ZGCTracksModel alloc]initContentWithDic:[rootDict objectForKey:@"tracks"]];
+            
+            [_tracksModel.list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZGCMediaListModel *mediaListModel = [[ZGCMediaListModel alloc]initContentWithDic:obj];
+                [_movieMediaListArr addObject:mediaListModel];
+            }];
+            !then ?: then();
+        });
+    });
+    
+}
+
 
 - (void)setMovieAlbumModel:(ZGCMovieAlbumModel *)movieAlbumModel {
     _movieAlbumModel = movieAlbumModel;
@@ -114,7 +153,32 @@
     cell.separatorInset = UIEdgeInsetsMake(0, 81, 0, 0);
     cell.mediaListModel = _movieMediaListArr[indexPath.row];
     
+    NSMutableArray *cellRowHeightArr = [self getCellRowHeightArr];
+    cell.rowHeight = [cellRowHeightArr[indexPath.row]floatValue];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSMutableArray *cellRowHeightArr = [self getCellRowHeightArr];
+    return [cellRowHeightArr[indexPath.row]floatValue];
+}
+
+/**
+ *  获取所有的cell的高度的数组
+ *
+ *  @return 数组
+ */
+- (NSMutableArray *)getCellRowHeightArr {
+    NSMutableArray *rowHeightArr = [NSMutableArray arrayWithCapacity:_movieMediaListArr.count];
+    [_movieMediaListArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ZGCMediaListModel *mediaListModel = _movieMediaListArr[idx];
+        CGFloat rowHeight = [Utils setLabelHeightFitToFontSize:17.0
+                                                    contentStr:mediaListModel.title
+                                                    labelWidth:KScreenWidth-155];
+        [rowHeightArr addObject:@(rowHeight+60)];
+    }];
+    return rowHeightArr;
 }
 
 
